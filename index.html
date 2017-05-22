@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Magicnator, to interact with MagicAPI</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h2>Search for cards</h2>
+	<select id="cardrequest" onchange="showInput()">
+		<option name="name" id="cardname">Name</option>
+		<option name="color" id="cardcolors">Colors</option>
+		<option name="text" id="cardtext">Text</option>
+		<option name="types" id="cardtypes">Types</option>
+		<option name="subtypes" id="cardsubtypes">Subtypes</option>
+		<option name="manacost" id="cardmanacost">Manacost</option>
+		<option name="colors/text" id="cardcolorstext">Colors/Text</option>
+		<option name="manacost/colors" id="cardmanacostcolors">Manacost/Colors</option>
+		<option name="cardusers" id="cardusers">Users</option>
+	</select>
+		<div class="divWrapper">
+			<label id="nameLabel">Name</label>
+			<input type="text" id="nameInput">
+		</div>
+	</form>
+
+	<script src="script.js"></script>
+</body>
+</html>
