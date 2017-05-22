@@ -85,3 +85,20 @@ function showInput(option) {
 			labelWrapper.className = showLabel(labelWrapper)
 	}
 }
+
+function requestJS(){
+
+	var selectedOption = document.querySelector('#cardrequest').value
+	var allWrappers = document.querySelectorAll('.divWrapper')
+	var wrapperClass = ''
+	var inputValue = ''
+	for (i=0;i<allWrappers.length;i++){
+		wrapperClass = allWrappers[i].className
+		if (!(!!~wrapperClass.indexOf('hide'))){
+			inputValue = allWrappers[i].children[1].value
+			break
+		}
+	}
+	console.log(inputValue, selectedOption)
+
+}
