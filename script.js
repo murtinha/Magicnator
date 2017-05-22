@@ -1,36 +1,31 @@
 function hideLabel(wrappers){
-	for(i=0;i<wrappers.length;i++){
-		if(!(!!~wrappers[i].className.indexOf('hide'))){
-			wrappers[i].className += ' hide' 
-		}
+	if(!(!!~wrappers.className.indexOf('hide'))){
+		wrappers.className += ' hide' 
 	}
 	return wrappers
 }
 
+function showLabel(wrappers){
+	if(!!~wrappers.className.indexOf('hide')){
+		wrappers.className.replace('hide','').trim()
+	}
+	return wrappers
+}
 
 function showInput(option) {
 
 	var selectedOption = document.querySelector('#cardrequest').value;
-	var inputField = document.createElement('input')
-	var divWrapper = document.createElement('div')
-	divWrapper.setAttribute('class','divWrapper')
-	inputField.setAttribute('id', 'userInput')
-	inputField.setAttribute('type', 'text')
 	switch(selectedOption) {
 
 		case 'Colors':
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
+			labelWrapper = document.querySelector('#colorsWrapper')
 			hideLabel(wrappers)
-			label = document.createElement('label')
-			label.setAttribute('id','colorsLabel')
-			label.innerHTML = 'Colors'
-			divWrapper.appendChild(label)
-			divWrapper.appendChild(inputField)
-			document.body.appendChild(divWrapper)
+			labelWrapper.className = showLabel(labelWrapper)
 			break
 		
 		case 'Users':
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
 			hideLabel(wrappers)
 			label = document.createElement('label')
 			label.setAttribute('id','usersLabel')
@@ -41,7 +36,7 @@ function showInput(option) {
 			break
 
 		case 'Text':
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
 			hideLabel(wrappers)
 			label = document.createElement('label')
 			label.setAttribute('id','textLabel')
@@ -52,7 +47,7 @@ function showInput(option) {
 			break
 
 		case 'Subtypes':
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
 			hideLabel(wrappers)
 			label = document.createElement('label')
 			label.setAttribute('id','subtypesLabel')
@@ -63,7 +58,7 @@ function showInput(option) {
 			break
 
 		case 'Types':
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
 			hideLabel(wrappers)
 			label = document.createElement('label')
 			label.setAttribute('id','typesLabel')
@@ -73,8 +68,35 @@ function showInput(option) {
 			document.body.appendChild(divWrapper)
 			break
 
+		case 'Manacost':
+			wrappers = document.querySelector('.divWrapper')
+			hideLabel(wrappers)
+			label = document.createElement('label')
+			label.setAttribute('id','manacostLabel')
+			label.innerHTML = 'Manacost'
+			divWrapper.appendChild(label)
+			divWrapper.appendChild(inputField)
+			document.body.appendChild(divWrapper)
+			break
+
+		case 'Colors/Text':
+			wrappers = document.querySelector('.divWrapper')
+			hideLabel(wrappers)
+			label_color = document.createElement('label')
+			label_types = document.createElement('label')
+			label_color.setAttribute('id','colorstypesLabel')
+			label_types.setAttribute('id', 'typescolorsLabel')
+			label_color.innerHTML = 'Colors'
+			label_types.innerHTML = 'Types'
+			divWrapper.appendChild(label_color)
+			divWrapper.appendChild(inputField)
+			divWrapper.appendChild(label_types)
+			divWrapper.appendChild(inputField)
+			document.body.appendChild(divWrapper)
+			break
+
 		default:
-			wrappers = document.querySelectorAll('.divWrapper')
+			wrappers = document.querySelector('.divWrapper')
 			hideLabel(wrappers)
 			label = document.querySelector('#nameLabel')
 			divWrapper.appendChild(label)
