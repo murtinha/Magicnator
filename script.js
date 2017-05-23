@@ -23,7 +23,6 @@ function showInput(option) {
 		case 'Colors':
 			wrappers = document.querySelectorAll('.divWrapper')
 			labelWrapper = document.querySelector('#colorsWrapper')
-			console.log(labelWrapper)
 			hideLabel(wrappers)
 			labelWrapper.className = showLabel(labelWrapper)
 			break
@@ -87,17 +86,40 @@ function showInput(option) {
 
 function requestJS(){
 
-	var selectedOption = document.querySelector('#cardrequest').value
+	var selectedOption = document.querySelector('#cardrequest').value.toLowerCase()
 	var allWrappers = document.querySelectorAll('.divWrapper')
 	var wrapperClass = ''
-	var inputValue = ''
+	var inputValue,inputValue2
+
 	for (i=0;i<allWrappers.length;i++){
 		wrapperClass = allWrappers[i].className
 		if (!(!!~wrapperClass.indexOf('hide'))){
-			inputValue = allWrappers[i].children[1].value
+			if (allWrappers[i].children.length == 4){
+				inputValue = allWrappers[i].children[1].value.split(',')
+				inputValue2 = allWrappers[i].children[3].value.split(',')
+			}
+			else{
+				inputValue = allWrappers[i].children[1].value.split(',')
+			}
 			break
 		}
 	}
-	$.get()
+	var splitSelectedOption = selectedOption.split('/')
+	var queryString
+	if (selectedOption.length == 1){
+		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue[0].join(',')
+	}
+	else{
+		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue.join(',') + '&' + splitSelectedOption[1] + '=' + inputValue2.join(',')
+	}
+	$.ajax({
+		url: "https://magicapi.herokuapp.com/" + selectedOption + queryString,
+		crossDomain: true,
+		type: "GET",
+		dataType:'JSON',
+		success: function(data){
+    				console.log(data);
+				}
 
+	})
 }
