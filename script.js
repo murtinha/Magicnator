@@ -47,7 +47,6 @@ function showInput(option) {
 			labelWrapper = document.querySelector('#subtypesWrapper')
 			hideLabel(wrappers)
 			labelWrapper.className = showLabel(labelWrapper)
-
 			break
 
 		case 'Types':
@@ -99,6 +98,6 @@ function requestJS(){
 			break
 		}
 	}
-	console.log(inputValue, selectedOption)
+	$.get()
 
 }
