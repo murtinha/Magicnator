@@ -95,22 +95,22 @@ function requestJS(){
 		wrapperClass = allWrappers[i].className
 		if (!(!!~wrapperClass.indexOf('hide'))){
 			if (allWrappers[i].children.length == 4){
-				inputValue = allWrappers[i].children[1].value.split(',')
-				inputValue2 = allWrappers[i].children[3].value.split(',')
+				inputValue = allWrappers[i].children[1].value
+				inputValue2 = allWrappers[i].children[3].value
 			}
 			else{
-				inputValue = allWrappers[i].children[1].value.split(',')
+				inputValue = allWrappers[i].children[1].value
 			}
 			break
 		}
 	}
 	var splitSelectedOption = selectedOption.split('/')
 	var queryString
-	if (selectedOption.length == 1){
-		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue[0].join(',')
+	if (splitSelectedOption.length == 1){
+		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue
 	}
 	else{
-		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue.join(',') + '&' + splitSelectedOption[1] + '=' + inputValue2.join(',')
+		queryString = '/?' + splitSelectedOption[0] + '=' + inputValue + '&' + splitSelectedOption[1] + '=' + inputValue2
 	}
 	$.ajax({
 		url: "https://magicapi.herokuapp.com/" + selectedOption + queryString,
@@ -118,7 +118,11 @@ function requestJS(){
 		type: "GET",
 		dataType:'JSON',
 		success: function(data){
-    				console.log(data);
+   				for(i=0;i<data.url.length;i++){
+    					img = document.createElement('img')
+    					img.setAttribute('src',data.url[i])
+    					document.body.appendChild(img)
+    				}
 				}
 
 	})

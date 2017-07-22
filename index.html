@@ -4,65 +4,103 @@
 	<meta charset="UTF-8">
 	<title>Magicnator, to interact with MagicAPI</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-	<h2>Search for cards</h2>
-	<select id="cardrequest" onchange="showInput()">
-		<option name="name" id="cardname">Name</option>
-		<option name="color" id="cardcolors">Colors</option>
-		<option name="text" id="cardtext">Text</option>
-		<option name="types" id="cardtypes">Types</option>
-		<option name="subtypes" id="cardsubtypes">Subtypes</option>
-		<option name="manacost" id="cardmanacost">Manacost</option>
-		<option name="colors/text" id="cardcolorstext">Colors/Text</option>
-		<option name="manacost/colors" id="cardmanacostcolors">Manacost/Colors</option>
-		<option name="cardusers" id="cardusers">Users</option>
-	</select>
-		<div class="divWrapper" id="nameWrapper">
-			<label id="nameLabel">Name</label>
-			<input type="text" id="nameInput">
+	<div class="row blue-div">
+		<div class="col-sm-4" id="cardWrapper">
+			<h2>Card Actions</h2>
+			<select class ="centered-select" id="cardrequest" onchange="showInput()">
+			<option name="name" id="cardname">Name</option>
+			<option name="color" id="cardcolors">Colors</option>
+			<option name="text" id="cardtext">Text</option>
+			<option name="types" id="cardtypes">Types</option>
+			<option name="subtypes" id="cardsubtypes">Subtypes</option>
+			<option name="manacost" id="cardmanacost">Manacost</option>
+			<option name="colors/text" id="cardcolorstext">Colors/Text</option>
+			<option name="manacost/colors" id="cardmanacostcolors">Manacost/Colors</option>
+			<option name="cardusers" id="cardusers">Users</option>
+			</select>
 		</div>
-		<div class="divWrapper hide" id="colorsWrapper">
-			<label id="colorsLabel">Colors</label>
-			<input type="text" id="colorsInput">
+		<div class="col-sm-4" id="userWrapper">
+			<h2>User Actions</h2>
+			<select class ="centered-select" id="userrequests">
+				<option value="">AddUser</option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+			</select>
 		</div>
-		<div class="divWrapper hide" id="textWrapper">
-			<label id="textLabel">Text</label>
-			<input type="text" id="textInput">
+		<div class="col-sm-4">
+			<h2>Clan Actions</h2>
+			<select class ="centered-select" id= "clanWrapper">
+				<option value="">AddClan</option>
+				<option value=""></option>
+				<option value=""></option>
+				<option value=""></option>
+			</select>
 		</div>
-		<div class="divWrapper hide" id="typesWrapper">
-			<label id="typesLabel">Types</label>
-			<input type="text" id="typesInput">
+	</div>
+		<div class = "boxWrapper row">
+			<div class="divWrapper col-sm-4 col-sm-offset-4" id="nameWrapper">
+				<label id="nameLabel">Name</label>
+				<input type="text" id="nameInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="colorsWrapper">
+				<label id="colorsLabel">Colors</label>
+				<input type="text" id="colorsInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="textWrapper">
+				<label id="textLabel">Text</label>
+				<input type="text" id="textInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="typesWrapper">
+				<label id="typesLabel">Types</label>
+				<input type="text" id="typesInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="subtypesWrapper">
+				<label id="subtypesLabel">Subtypes</label>
+				<input type="text" id="subtypesInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="manacostWrapper">
+				<label id="manacostLabel">Manacost</label>
+				<input type="text" id="manacostInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-4 col-sm-offset-4" id="cardusersWrapper">
+				<label id="cardusersLabel">Users</label>
+				<input type="text" id="cardusersInput" class="labelSize">
+			</div>
+			<div class="divWrapper hide col-sm-8 col-sm-offset-2" id="colorstextWrapper">
+					<label id="colorstextLabel">Colors</label>
+					<input type="text" id="colorstextInput" class="labelSize">
+					<label class="textcolorsLabel">Text</label>
+					<input type="text" class="labelSize">					
+			</div>
+			<div class="divWrapper hide col-sm-8 col-sm-offset-2" id="manacostcolorsWrapper">
+					<label class="manacostcolorsLabel">Manacost</label>
+					<input type="text" class="labelSize">
+					<label id="colorsmanacostLabel">Colors</label>
+					<input type="text" id="colorsmanacostInput" class="labelSize">
+				</div>
+				
+			</div>
 		</div>
-		<div class="divWrapper hide" id="subtypesWrapper">
-			<label id="subtypesLabel">Subtypes</label>
-			<input type="text" id="subtypesInput">
-		</div>
-		<div class="divWrapper hide" id="manacostWrapper">
-			<label id="manacostLabel">Manacost</label>
-			<input type="text" id="manacostInput">
-		</div>
-		<div class="divWrapper hide" id="cardusersWrapper">
-			<label id="cardusersLabel">Users</label>
-			<input type="text" id="cardusersInput">
-		</div>
-		<div class="divWrapper hide" id="colorstextWrapper">
-			<label id="colorstextLabel">Colors</label>
-			<input type="text" id="colorstextInput">
-			<label class="textcolorsLabel">Text</label>
-			<input type="text" class="textcolorsInput">
-		</div>
-		<div class="divWrapper hide" id="manacostcolorsWrapper">
-			<label class="manacostcolorsLabel">Manacost</label>
-			<input type="text" class="manacostcolorsInput">
-			<label id="colorsmanacostLabel">Colors</label>
-			<input type="text" id="colorsmanacostInput">
-		</div>
-	<button id="submitButton" onclick="requestJS()">Submit</button>
+			<button class="btn btn-primary" id="submitButton" onclick="requestJS()">Submit</button>			
+
 	<script	src="https://code.jquery.com/jquery-3.2.1.min.js"
   			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   			crossorigin="anonymous">
   	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>
