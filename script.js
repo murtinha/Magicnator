@@ -17,7 +17,7 @@ function showLabel(wrapper){
 
 function showInput(option) {
 
-	var selectedOption = document.querySelector('#cardrequest').value;
+	var selectedOption = document.querySelector('.cardrequest').value;
 	switch(selectedOption) {
 
 		case 'Colors':

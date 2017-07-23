@@ -10,34 +10,31 @@
 	<div class="row blue-div">
 		<div class="col-sm-4" id="cardWrapper">
 			<h2>Card Actions</h2>
-			<select class ="centered-select" id="cardrequest" onchange="showInput()">
-			<option name="name" id="cardname">Name</option>
-			<option name="color" id="cardcolors">Colors</option>
-			<option name="text" id="cardtext">Text</option>
-			<option name="types" id="cardtypes">Types</option>
-			<option name="subtypes" id="cardsubtypes">Subtypes</option>
-			<option name="manacost" id="cardmanacost">Manacost</option>
-			<option name="colors/text" id="cardcolorstext">Colors/Text</option>
-			<option name="manacost/colors" id="cardmanacostcolors">Manacost/Colors</option>
-			<option name="cardusers" id="cardusers">Users</option>
+			<select class ="centered-select cardrequest" onchange="showInput()">
+			<option name="name" class="cardname">Name</option>
+			<option name="color" class="cardcolors">Colors</option>
+			<option name="text" class="cardtext">Text</option>
+			<option name="types" class="cardtypes">Types</option>
+			<option name="subtypes" class="cardsubtypes">Subtypes</option>
+			<option name="manacost" class="cardmanacost">Manacost</option>
+			<option name="colors/text" class="cardcolorstext">Colors/Text</option>
+			<option name="manacost/colors" class="cardmanacostcolors">Manacost/Colors</option>
+			<option name="cardusers" class="cardusers">Users</option>
 			</select>
 		</div>
 		<div class="col-sm-4" id="userWrapper">
 			<h2>User Actions</h2>
-			<select class ="centered-select" id="userrequests">
-				<option value="">AddUser</option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
-				<option value=""></option>
+			<select class ="centered-select userrequest" onchange="showInput()">
+			<option name="adduser" class="Adduser">AddUser</option>
+			<option name="name" class="cardname">Name</option>
+			<option name="color" class="cardcolors">Colors</option>
+			<option name="text" class="cardtext">Text</option>
+			<option name="types" class="cardtypes">Types</option>
+			<option name="subtypes" class="cardsubtypes">Subtypes</option>
+			<option name="manacost" class="cardmanacost">Manacost</option>
+			<option name="colors/text" class="cardcolorstext">Colors/Text</option>
+			<option name="manacost/colors" class="cardmanacostcolors">Manacost/Colors</option>
+			<option name="cardusers" class="cardusers">Users</option>
 			</select>
 		</div>
 		<div class="col-sm-4">
@@ -50,7 +47,7 @@
 			</select>
 		</div>
 	</div>
-		<div class = "boxWrapper row">
+		<div class = "boxWrapper row blue-div">
 			<div class="divWrapper col-sm-4 col-sm-offset-4" id="nameWrapper">
 				<label id="nameLabel">Name</label>
 				<input type="text" id="nameInput" class="labelSize">
@@ -88,14 +85,16 @@
 			<div class="divWrapper hide col-sm-8 col-sm-offset-2" id="manacostcolorsWrapper">
 					<label class="manacostcolorsLabel">Manacost</label>
 					<input type="text" class="labelSize">
-					<label id="colorsmanacostLabel">Colors</label>
+					<label id="colorsmanacostLabel">Colors<label>
 					<input type="text" id="colorsmanacostInput" class="labelSize">
-				</div>
-				
 			</div>
+				
 		</div>
-			<button class="btn btn-primary" id="submitButton" onclick="requestJS()">Submit</button>			
-
+	<div class = "submitWrapper blue-div row">
+		<div class = "col-sm-1 col-sm-offset-5">
+		<button class="btn btn-primary submitButton text-align" onclick="requestJS()">Submit</button>			
+		</div>
+	</div>
 	<script	src="https://code.jquery.com/jquery-3.2.1.min.js"
   			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   			crossorigin="anonymous">
